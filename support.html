@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Support — Markova Labs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0f0f0f;
+      --white: #fafaf8;
+      --gray: #6b6b6b;
+      --light: #f0efeb;
+      --accent: #1a1a1a;
+      --border: #e2e0da;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--white);
+      color: var(--black);
+      min-height: 100vh;
+      font-weight: 300;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      color: var(--black);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-link {
+      font-size: 0.85rem;
+      color: var(--gray);
+      text-decoration: none;
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+
+    .nav-link:hover { color: var(--black); }
+
+    /* HERO */
+    .hero {
+      padding: 5rem 3rem 3rem;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .hero-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray);
+      font-weight: 500;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gray);
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--gray);
+      line-height: 1.7;
+      max-width: 540px;
+    }
+
+    /* CONTACT CARD */
+    .contact-section {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2rem 3rem;
+    }
+
+    .contact-card {
+      background: var(--black);
+      color: var(--white);
+      border-radius: 16px;
+      padding: 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-card-left h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .contact-card-left p {
+      font-size: 0.9rem;
+      color: #999;
+      line-height: 1.6;
+      max-width: 320px;
+    }
+
+    .contact-btn {
+      display: inline-block;
+      background: var(--white);
+      color: var(--black);
+      padding: 0.85rem 1.75rem;
+      border-radius: 100px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: opacity 0.2s;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .contact-btn:hover { opacity: 0.85; }
+
+    /* FAQ */
+    .faq-section {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem;
+    }
+
+    .faq-section h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.75rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 2rem;
+    }
+
+    .faq-item {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-q {
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-bottom: 0.6rem;
+      color: var(--black);
+    }
+
+    .faq-a {
+      font-size: 0.9rem;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    .faq-a a {
+      color: var(--black);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* APPS */
+    .apps-section {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 3rem 3rem;
+    }
+
+    .apps-section h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.75rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+
+    .apps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+
+    .app-card {
+      background: var(--light);
+      border-radius: 12px;
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+    }
+
+    .app-card-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .app-card-desc {
+      font-size: 0.85rem;
+      color: var(--gray);
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+
+    .app-card-email {
+      font-size: 0.8rem;
+      color: var(--black);
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2px;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      max-width: 100%;
+    }
+
+    .footer-copy {
+      font-size: 0.8rem;
+      color: var(--gray);
+    }
+
+    .footer-link {
+      font-size: 0.8rem;
+      color: var(--gray);
+      text-decoration: none;
+    }
+
+    .footer-link:hover { color: var(--black); }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero, .contact-section, .faq-section, .apps-section {
+      animation: fadeUp 0.5s ease both;
+    }
+
+    .contact-section { animation-delay: 0.1s; }
+    .faq-section { animation-delay: 0.15s; }
+    .apps-section { animation-delay: 0.2s; }
+
+    @media (max-width: 600px) {
+      nav, .hero, .contact-section, .faq-section, .apps-section, footer {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+
+      .contact-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="https://markovalabs.com" class="nav-logo">Markova Labs</a>
+    <a href="https://markovalabs.com" class="nav-link">← Back to home</a>
+  </nav>
+
+  <section class="hero">
+    <p class="hero-label">Support</p>
+    <h1>We're here to <em>help.</em></h1>
+    <p>Have a question about one of our apps? Run into an issue? We'll get back to you as quickly as we can — usually within 24 hours.</p>
+  </section>
+
+  <section class="contact-section">
+    <div class="contact-card">
+      <div class="contact-card-left">
+        <h2>Get in touch</h2>
+        <p>Email us directly and tell us which app you're using and what's going on. We read every message.</p>
+      </div>
+      <a href="mailto:support@markovalabs.com" class="contact-btn">support@markovalabs.com</a>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <h2>Common questions</h2>
+
+    <div class="faq-item">
+      <p class="faq-q">How do I delete my account?</p>
+      <p class="faq-a">Email us at <a href="mailto:support@markovalabs.com">support@markovalabs.com</a> with the subject line "Delete my account" and we'll take care of it within 48 hours.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">How do I report a user or listing?</p>
+      <p class="faq-a">Use the report button inside the app on any listing or profile. Our moderation team reviews all reports promptly.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">I found a bug. How do I report it?</p>
+      <p class="faq-a">Email us at <a href="mailto:support@markovalabs.com">support@markovalabs.com</a> with a description of the issue and what device you're using. Screenshots help a lot.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Where is my data stored?</p>
+      <p class="faq-a">All data is stored securely using Google Firebase infrastructure. You can read our full <a href="https://markovalabs.com/privacy-policy.html">Privacy Policy</a> for details.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">I have a partnership or press inquiry.</p>
+      <p class="faq-a">Reach out to <a href="mailto:alli.markovic@markovalabs.com">alli.markovic@markovalabs.com</a> and we'll respond as soon as possible.</p>
+    </div>
+
+  </section>
+
+  <section class="apps-section">
+    <h2>Our apps</h2>
+    <div class="apps-grid">
+
+      <div class="app-card">
+        <p class="app-card-name">Haggl</p>
+        <p class="app-card-desc">A peer-to-peer trade and marketplace app. Buy, sell, or trade anything locally.</p>
+        <a href="mailto:support@markovalabs.com?subject=Haggl Support" class="app-card-email">Get Haggl support →</a>
+      </div>
+
+      <div class="app-card">
+        <p class="app-card-name">Void</p>
+        <p class="app-card-desc">An anonymous space to share confessions, thoughts, and unfiltered moments.</p>
+        <a href="mailto:support@markovalabs.com?subject=Void Support" class="app-card-email">Get Void support →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-copy">© 2026 Markova Labs LLC. All rights reserved.</span>
+    <a href="https://markovalabs.com/privacy-policy.html" class="footer-link">Privacy Policy</a>
+  </footer>
+
+</body>
+</html>
